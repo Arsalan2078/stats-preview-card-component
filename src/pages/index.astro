@@ -1,5 +1,6 @@
 ---
-
+import "../styles/globals.scss";
+import css from "./index.module.scss";
 ---
 
 <html lang="en">
@@ -10,16 +11,26 @@
     <meta name="generator" content={Astro.generator} />
     <title>Frontend Mentor | Stats preview card component</title>
   </head>
-  <body>
-    <h1>Frontend Mentor | Stats preview card component</h1>
-		
-		Get insights that help your business grow.
+  <body class={css.body}>
+    <header>
+      <h1>Frontend Mentor | Stats preview card component</h1>
+    </header>
 
-		Discover the benefits of data analytics and make better decisions regarding revenue, customer 
-		experience, and overall efficiency.
+    <main>
+      <div>
+        <h2>Get <span>insights</span> that help your business grow.</h2>
 
-		10k+ companies
-		314 templates
-		12m+ queries
+        <p>
+          Discover the benefits of data analytics and make better decisions
+          regarding revenue, customer experience, and overall efficiency.
+        </p>
+
+        <ul>
+          <li><span>10k+</span> companies</li>
+          <li><span>314</span> templates</li>
+          <li><span>12m+</span> queries</li>
+        </ul>
+      </div>
+    </main>
   </body>
 </html>

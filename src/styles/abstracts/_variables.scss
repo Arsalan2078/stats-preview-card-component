@@ -1,0 +1,8 @@
+@use "./functions";
+
+$bp-sm: functions.to-rem(384px);
+$bp-md: functions.to-rem(768px);
+$bp-lg: functions.to-rem(1440px);
+
+$card-min-cqw-size: functions.to-rem(327px);
+$card-max-cqw-size: functions.to-rem(564px);
