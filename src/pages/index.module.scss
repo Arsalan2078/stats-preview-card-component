@@ -1,0 +1,30 @@
+@use "../styles/abstracts/z-index" as abs;
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100dvh;
+  padding-block: abs.get-clamp(88px, 92px, abs.$bp-sm, abs.$bp-md);
+  padding-inline: abs.get-clamp(24px, 102px, abs.$bp-sm, abs.$bp-md);
+
+  @extend %text-preset-3;
+
+  > header {
+    @extend %visually-hidden;
+  }
+  > main {
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: #{abs.$bp-md}) {
+  .body {
+    padding-block: abs.get-clamp(92px, 179px, abs.$bp-md, abs.$bp-lg);
+    padding-inline: abs.get-clamp(102px, 156px, abs.$bp-md, abs.$bp-lg);
+  }
+}
