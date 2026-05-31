@@ -1,0 +1,151 @@
+@use "../styles/abstracts/z-index" as abs;
+
+.container {
+  container: card-container / inline-size;
+  margin: 0 auto;
+  width: min(100%, #{abs.$card-max-cqw-size});
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, abs.$card-mid-cqw-size);
+
+  margin: 0 auto;
+  border-top-left-radius: abs.to-rem(8px);
+  border-top-right-radius: abs.to-rem(8px);
+  border-bottom-right-radius: abs.to-rem(8px);
+  border-bottom-left-radius: abs.to-rem(8px);
+
+  text-align: center;
+
+  h2 {
+    @extend %text-preset-1;
+  }
+  h2 > span {
+    color: var(--c-purple-500);
+  }
+  p {
+    opacity: 0.75;
+  }
+}
+
+.imgHolder {
+  display: block;
+  width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: initial;
+  border-bottom-left-radius: initial;
+  background-color: var(--c-purple-500);
+
+  > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 327/240;
+    object-fit: cover;
+    object-position: top;
+    mix-blend-mode: multiply;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: abs.get-clamp(
+    40px,
+    72px,
+    abs.$card-min-cqw-size,
+    abs.$card-mid-cqw-size,
+    cqw
+  );
+
+  border-top-left-radius: initial;
+  border-top-right-radius: initial;
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+
+  padding-block: abs.get-clamp(
+    32px,
+    64px,
+    abs.$card-min-cqw-size,
+    abs.$card-mid-cqw-size,
+    cqw
+  );
+  padding-inline: abs.get-clamp(
+    32px,
+    80.25px,
+    abs.$card-min-cqw-size,
+    abs.$card-mid-cqw-size,
+    cqw
+  );
+  background-color: var(--c-blue-950);
+
+  > div {
+    display: inherit;
+    flex-direction: inherit;
+    gap: abs.get-clamp(
+      8px,
+      24px,
+      abs.$card-min-cqw-size,
+      abs.$card-mid-cqw-size,
+      cqw
+    );
+  }
+  > ul {
+    display: inherit;
+    flex-direction: inherit;
+    gap: abs.to-rem(32px);
+  }
+  > ul > li > span:first-child {
+    @extend %text-preset-1;
+    display: block;
+    opacity: 1;
+  }
+  > ul > li > span:last-child {
+    @extend %text-preset-4;
+    opacity: 0.6;
+  }
+}
+
+@container card-container (min-width: #{abs.$card-mid-cqw-size}) {
+  .card {
+    text-align: start;
+  }
+
+  .content {
+    > ul {
+      flex-direction: row;
+      gap: abs.to-rem(64px);
+    }
+  }
+}
+
+@container card-container (min-width: #{abs.$card-max-cqw-size}) {
+  .card {
+    flex-direction: row;
+    width: unset;
+  }
+
+  .imgHolder {
+    order: 1;
+    border-top-left-radius: initial;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: initial;
+
+    > img {
+      width: initial;
+      height: 100%;
+      aspect-ratio: initial;
+      object-position: initial;
+    }
+  }
+
+  .content {
+    border-top-left-radius: inherit;
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
+    border-bottom-left-radius: inherit;
+  }
+}

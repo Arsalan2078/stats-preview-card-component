@@ -1,6 +1,9 @@
 ---
+import InformationCard from "../components/InformationCard.astro";
 import "../styles/globals.scss";
 import css from "./index.module.scss";
+
+const title = "Frontend Mentor | Stats preview card component";
 ---
 
 <html lang="en">
@@ -9,28 +12,15 @@ import css from "./index.module.scss";
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Frontend Mentor | Stats preview card component</title>
+    <title>{title}</title>
   </head>
   <body class={css.body}>
     <header>
-      <h1>Frontend Mentor | Stats preview card component</h1>
+      <h1>{title}</h1>
     </header>
 
     <main>
-      <div>
-        <h2>Get <span>insights</span> that help your business grow.</h2>
-
-        <p>
-          Discover the benefits of data analytics and make better decisions
-          regarding revenue, customer experience, and overall efficiency.
-        </p>
-
-        <ul>
-          <li><span>10k+</span> companies</li>
-          <li><span>314</span> templates</li>
-          <li><span>12m+</span> queries</li>
-        </ul>
-      </div>
+      <InformationCard />
     </main>
   </body>
 </html>
